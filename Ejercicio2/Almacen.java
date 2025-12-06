@@ -1,4 +1,4 @@
-public class ProductoAlmacen {
+public class Almacen {
 
     private String referencia;
     private int cantidadActual;
