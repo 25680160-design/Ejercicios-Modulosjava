@@ -9,7 +9,7 @@ public class ControlReserva {
     private Scanner sc;
     private int anoActual;
 
-    public ControlReservaLibros() {
+    public ControlReserva() {
         sc = new Scanner(System.in);
         libros = new ArrayList<>();
         anoActual = LocalDate.now().getYear();
