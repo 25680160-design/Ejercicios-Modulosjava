@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ControlProducto {
+public class Control {
 
     Scanner sc = new Scanner(System.in);
 
