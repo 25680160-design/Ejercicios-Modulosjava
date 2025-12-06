@@ -1,39 +1,29 @@
-import java.util.Scanner;
-
-public class ControlAnimal {
-
-    Scanner sc = new Scanner(System.in);
-
-    public void ejecutar() {
-
-        System.out.println("CONTROL DE ANIMALES ");
-
-        System.out.print("Ingrese el nombre del animal: ");
-        String nombre = sc.nextLine();
-
-        System.out.print("Ingrese la especie: ");
-        String especie = sc.nextLine();
-
-        System.out.print("Ingrese la energía inicial (0-100): ");
-        int energia = sc.nextInt();
-
-        Animal animal = new Animal(nombre, especie, energia);
-
-        System.out.println("\n DATOS DEL ANIMAL ");
-        System.out.println("Nombre: " + animal.getNombre());
-        System.out.println("Especie: " + animal.getEspecie());
-        System.out.println("Energía inicial: " + animal.getEnergia());
-
-        System.out.println("\n COMPORTAMIENTO 1: Consumir Energía ");
-        System.out.print("Ingrese cuánta energía se va a consumir: ");
-        int consumo = sc.nextInt();
-        System.out.println(animal.consumirEnergia(consumo));
-
-        System.out.println("\n COMPORTAMIENTO 2: Descansar ");
-        System.out.print("Ingrese cuánta energía va a recuperar: ");
-        int descanso = sc.nextInt();
-        System.out.println(animal.descansar(descanso));
-
-        System.out.println("\n=== FIN DEL EJERCICIO 9 ===\n");
-    }
+public class Animal { 
+    private String nombre; 
+    private String especie; 
+    private int energia; 
+    public Animal(String nombre, String especie, int energia) {
+        this.nombre = nombre; this.especie = especie; this.energia = energia; } 
+    public String getNombre() {
+        return nombre; } 
+    public void setNombre(String nombre) { 
+        this.nombre = nombre; } 
+    public String getEspecie() { 
+        return especie; } 
+    public void setEspecie(String especie) { 
+        this.especie = especie; } 
+    public int getEnergia() { 
+        return energia; } 
+    public void setEnergia(int energia) { 
+        this.energia = energia; } 
+    public String consumirEnergia(int cantidad) { 
+        if (cantidad <= 0) return "La cantidad debe ser mayor a cero."; 
+        if (energia - cantidad < 0) { energia = 0; 
+                                     return "El animal se quedó sin energía."; } energia -= cantidad; 
+        return "El animal gastó energía y ahora tiene: " + energia; } 
+    public String descansar(int cantidad) { 
+        if (cantidad <= 0) return "La cantidad debe ser mayor a cero."; energia += cantidad; 
+        if (energia > 100) energia = 100; 
+        return "El animal descansó y recuperó energía. Energía actual: " + energia; }
 }
+
